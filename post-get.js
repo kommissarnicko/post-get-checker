@@ -31,11 +31,14 @@ app.get('/', function(req, res)
 app.post('/', function(req, res)
 {
 	var urlArray = [];
-	for (var i in req.query)
+	if (req.query)
 	{
-		urlArray.push({'name':i, 'value':req.query[i]})
+		for (var i in req.query)
+		{
+			urlArray.push({'name':i, 'value':req.query[i]})
+		}
 	}
-	
+
 	var bodyArray = [];
 	for (var i in req.body)
 	{
