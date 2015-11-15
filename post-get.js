@@ -15,16 +15,37 @@ app.listen(app.get('port'), function(){
   console.log('Express started on http://localhost:' + app.get('port') + '; press Ctrl-C to terminate.');
 });
 
-app.get('/get', function(req, res) 
+app.get('/', function(req, res) 
 {
-	var getArray = [];
+	var urlArray = [];
 	for (var i in req.query)
 	{
-		getArray.push({'name':i, 'value':req.query[i]})
+		urlArray.push({'name':i, 'value':req.query[i]})
 	}
+	
 	var context = {};
-	context.dataTable = getArray;
+	context.urlTable = urlArray;
 	res.render('get', context);
+});
+
+app.post('/', function(req, res)
+{
+	var urlArray = [];
+	for (var i in req.query)
+	{
+		urlArray.push({'name':i, 'value':req.query[i]})
+	}
+	
+	var bodyArray = [];
+	for (var i in req.body)
+	{
+		bodyArray.push({'name':i, 'value':req.body[i]})
+	}
+	
+	var context = {};
+	context.urlTable = urlArray;
+	context.bodyTable = bodyArray;
+	res.render('post', context);
 });
 
 app.use(function(req,res){

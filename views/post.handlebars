@@ -1,1 +1,36 @@
 <h1>POST Request Received</h1>
+<table>
+	<caption>URL DATA RECEIVED</caption>
+	<thead>
+		<tr>
+			<th>Key</th>
+			<th>Value</th>
+		</tr>
+	
+	<tbody>
+	{{#each urlTable}}
+		<tr>
+			<td>{{this.name}}:</td>
+			<td>{{this.value}}</td>
+		</tr>
+	{{/each}}
+	</tbody>
+</table>
+
+<table>
+	<caption>BODY DATA RECEIVED</caption>
+	<thead>
+		<tr>
+			<th>Key</th>
+			<th>Value</th>
+		</tr>
+	
+	<tbody>
+	{{#each bodyTable}}
+		<tr>
+			<td>{{this.name}}:</td>
+			<td>{{this.value}}</td>
+		</tr>
+	{{/each}}
+	</tbody>
+</table>
