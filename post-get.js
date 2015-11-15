@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
-app.set('port', 3001); //will use 3001 for this!
+app.set('port', 3000); 
 
 //lets me know it's running
 app.listen(app.get('port'), function(){
